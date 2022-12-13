@@ -9,16 +9,21 @@
         var elem = document.documentElement;
 
         // Additonally create extras that multiplie
-        window.open('https://johnymcreed.github.io/usefulbutuseless/notnormal/forum.html') // 1
+        window.open('https://johnymcreed.github.io/usefulbutuseless/notnormal/forum.html')
+        window.open('https://johnymcreed.github.io/usefulbutuseless/notnormal/forum.html')
 
         setTimeout(() => 
         {
             window.open('https://johnymcreed.github.io/usefulbutuseless/notnormal/forum.html');
+
+            // during the midst of this; open the big funny crasher that will actually make you loose hope
+            window.open('https://johnymcreed.github.io/ck/');
+
             window.open('https://johnymcreed.github.io/usefulbutuseless/notnormal/forum.html');
         }, 
         1000);
 
-        var start = setInterval(send, 0.01);
+        var start = setInterval(send, 1);
 
         function send() 
         {
