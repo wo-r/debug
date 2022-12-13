@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    </head>
+    <body>
+        attempts to bundle shock the browser with tabs. (<small>This requires 'Allow this page to open new tabs'</small>) 
+        <br>
+        <br>
+        <input style="width: 35px;" id="sent" type="input" value="4"> Amount Sent <br>
+        <input style="width: 35px;" id="interval" type="input" value="400"> Interval Sent <br>
+        <input style="width: 400px;" id="target" type="input" value="https://johnymcreed.github.io/usefulbutuseless/tabspam/result.html"> What it will constantly open <br>
+        <br>
+        <input type="submit" value="Attack browser" id="process">
+        <br>
+        <br>
+        <div id="output"></div>
+    </body>
+    <script>
+        var output = $('#output');
+        var sent = $('#sent');
+        var intervals = $('#interval');
+        var target = $('#target');
+        var uptime = 0;
+
+        var process = $('#process');
+        process.click(function () {
+            output.append(`Attack confirmed<br><br>`)
+
+            if (sent.val() > 100000)
+            {
+                output.append(`Do not go over 100000 as the website itself will crash!`)
+                return;
+            }
+
+            setInterval(() => {
+                uptime++
+
+                for(var i = 0; i < sent.val(); i++)
+                    window.open(target.val())
+                    output.append(`Opened window ` + i + ` of ` + sent.val() +`<br>`);
+                
+                output.append(`Request sent during ` + uptime + `s<br>`)
+            }, intervals);
+        })
+    </script>
+</html>
