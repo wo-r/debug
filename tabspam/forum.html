@@ -9,7 +9,9 @@
         <br>
         <input style="width: 35px;" id="sent" type="input" value="4"> Amount Sent <br>
         <input style="width: 35px;" id="interval" type="input" value="400"> Interval Sent <br>
-        <input style="width: 400px;" id="target" type="input" value="https://johnymcreed.github.io/usefulbutuseless/tabspam/result.html"> What it will constantly open <br>
+        <input style="width: 150px;" id="target" type="input" value="https://johnymcreed.github.io/usefulbutuseless/tabspam/result.html"> What it will constantly open <br>
+        <br>
+        <input id="repeat" type="checkbox" checked> Repeat request <br>
         <br>
         <input type="submit" value="Attack browser" id="process">
         <br>
@@ -21,10 +23,21 @@
         var sent = $('#sent');
         var intervals = $('#interval');
         var target = $('#target');
+        var repeat = $('#repeat')
+
         var uptime = 0;
+        var sec = 0;
+
+        function pad ( val ) { return val > 9 ? val : "0" + val; }
+        setInterval(function()
+        {
+            uptime = pad(parseInt(sec/60,10)) + `:` + ++sec%60;
+        }, 
+        1000);
 
         var process = $('#process');
-        process.click(function () {
+        process.click(function () 
+        {
             output.append(`Attack confirmed<br><br>`)
 
             if (sent.val() > 100000)
@@ -33,15 +46,23 @@
                 return;
             }
 
-            setInterval(() => {
-                uptime++
+            var start = setInterval(send, intervals);
 
-                for(var i = 0; i < sent.val(); i++)
-                    window.open(target.val())
-                    output.append(`Opened window ` + i + ` of ` + sent.val() +`<br>`);
+            function send() 
+            {
+                for(var i = 0; i < sent.val(); i++) // go through the total send ones and send via I
+                {
+                    if (i !== sent.val())
+                        window.open(target.val()) // open target
+
+                    output.append(`Opened tab ` + [i + 1] + ` of ` + sent.val() +`<br>`);
+                }
                 
-                output.append(`Request sent during ` + uptime + `s<br>`)
-            }, intervals);
+                output.append(`Opened at ` + uptime + ` of request<br>`);
+
+                if (!repeat.is(':checked'))
+                    clearInterval(start)
+            }
         })
     </script>
 </html>
