@@ -31,17 +31,12 @@ body {
 }
 
 .container {
-    position: absolute;
-    left: 15%;
-    right: 150%;
 }
 
 .banner {
     background-color: rgb(80, 80, 80);
     padding: 50px 50px 50px 50px;
     text-transform: uppercase;
-
-    width: 60rem;
 }
 
 .banner .title {
@@ -53,8 +48,6 @@ body {
     background-color: rgb(80, 80, 80);
     padding: 50px 50px 50px 50px;
     margin-top: 2rem;
-
-    width: 60rem;
 }
 
 .banner-button {
