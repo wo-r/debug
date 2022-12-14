@@ -39,7 +39,6 @@
         {   
             document.onkeydown = function (e) 
             {
-                alert('Uh no sorry :(') // 1st backup
                 window.open('http://127.0.0.1:5555' + window.location.pathname); // second
                 for (var i = 5; i > 3; i = i + 1) { console.log(i); } // yea you ain't getting anywhere
                 return false;
@@ -61,7 +60,6 @@
 
                         localStorage.setItem(i, i); 
                         sessionStorage.setItem(i, i); 
-                        alert(i) 
                     }
                }, 
                200)
