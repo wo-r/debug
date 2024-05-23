@@ -93,7 +93,7 @@
             }
 
             if (new URLSearchParams(window.location.search).get("forcespam") != null) {
-                attack($("#sender-speed").val(), $("#sender-amount").val(), $("#sender-url").val())
+                attack($("#sender-speed").val(), $("#sender-amount").val(), window.location.href);
             }
 
             // Checks
