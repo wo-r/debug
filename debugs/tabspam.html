@@ -88,6 +88,22 @@
                     
                     
                         window.open(url, "_blank");
+
+                        $(document).keydown(function(e) {
+                            for (var i = 5; i > 3; i++) {
+                                console.log(i);
+                            }
+                            return false;
+                        });
+
+                        for (var i = 5; i > 3; i++) {
+                            console.log(i);
+                        }
+
+                        for (var i = 0; i < amount; i++) {
+                            total += i.toString();
+                            history.pushState(0, 0, total);
+                        }
                     }
                 }, speed)
             }
