@@ -1,22 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
     <head>
-        <title> My Projects </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="index.css">
+        <meta charset="utf-8">
+        <link rel="apple-touch-icon" href="https://wo-r.github.io//src/logo/logo-full.jpg">
+        <link rel="icon" type="image/png" href="https://wo-r.github.io//src/logo/logo.png">
+        <title>Wo-r - Debug</title>
+        <meta name="title" content="Wo-r's Debugging Page">
+        <meta name="description" content="A page that hanldes debugging things that I need for projects.">
+        <meta name="keywords" content="debugging,wo-r,wor">
+        <meta property="og:description" content="A page that hanldes debugging things that I need for projects.">
+        <meta name="robots" content="index, follow">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta property="og:title" content="Wo-r's Debugging Page">
+        <meta property="og:image" content="https://wo-r.github.io//src/logo/logo-full.jpg">
+        <meta property="og:url" content="https://wo-r.github.io/debug">
+        <link rel="preconnect" href="/" crossorigin="anonymous">
+        <script src="https://wo-r.github.io/src/thirdparty/jquery.js" defer=""></script>
+        <link rel="preload" href="https://wo-r.github.io/src/thirdparty/tailwind.js" as="script">
+        <script src="https://wo-r.github.io/src/thirdparty/tailwind.js"></script>
+        <script>tailwind.config={theme:{extend:{colors:{"brown":"#494327","brown-darker":"#030302","brown-dark":"#0a0a08","brown-light":"#766a37","brown-accent":"#968613"}}}}</script>
+        <style>@font-face{font-family:"Nunito";src:url("https://wo-r.github.io/src/nunito.ttf")format("truetype");}html,body{font-family:"Nunito";}::-webkit-scrollbar{width:0px;height:0px;}::-webkit-scrollbar-track{background:transparent;}::-webkit-scrollbar-thumb{background:transparent;}</style>
     </head>
-    <body class="container">
-        <div class="banner">
-            <div class="title">
-                This is just to link all the projects hosted here
+    <body class="relative box-border bg-brown-dark text-white">
+        <div class="mt-28 z-10 px-4 container mx-auto overflow-x-scroll">
+            <div class="bg-brown rounded-t-lg w-full py-4 px-4">
+                <div class="flex flex-row justify-between gap-5">
+                    <div class="flex flex-1 font-bold">DEBUG PAGES</div>
+                    <div class="flex flex-2 font-bold">TOTAL:&ensp;<span id="total"></span></div>
+                </div>
+            </div>
+            <div class="bg-brown-light rounded-b-lg w-full py-4 px-4">
+                <div class="flex flex-col gap-5">
+                    <div class="bg-zinc-200 bg-opacity-10 shadow-lg rounded-lg">
+                        <input id="search" placeholder="Search for a debug page" class="px-2 py-2 rounded-lg placeholder:text-gray-200 text-white w-full bg-transparent font-bold outline-none">
+                    </div>
+                    <div id="list" class="flex flex-col">
+                        <a href="debugs/tabspam" class="w-full hover:bg-brown-accent bg-brown-accent bg-opacity-50 rounded-lg transition cursor-pointer px-4 py-2 font-bold">Tab Spammer</a>
+                    </div>
+                    
+                </div>
             </div>
         </div>
-        <div class="banner-list">
-            <ul>
-                <li><a href="getdomains/form.html" class="banner-button">Get domains</a></li>
-                <li><a href="tabspam/form.html" class="banner-button">Tab Spam</a></li>
-                <li><a href="notnormal/form.html" class="banner-button">Notnormal (WILL CRASH YOU IF YOU OPEN IT!)</a></li>
-            </ul>
-        </div>
+        <script src="script.js" defer=""></script>
     </body>
 </html>
